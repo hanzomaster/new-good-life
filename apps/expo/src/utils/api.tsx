@@ -44,7 +44,7 @@ const getBaseUrl = () => {
  * Use only in _app.tsx
  */
 
-export function TRPCProvider(props: { children: React.ReactNode }) {
+export function TRPCProvider(props: Readonly<{ children: React.ReactNode }>) {
   const [queryClient] = React.useState(() => new QueryClient());
   const [trpcClient] = React.useState(() =>
     api.createClient({
