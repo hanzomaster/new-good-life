@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Layout(props: { children: React.ReactNode }) {
+export default function Layout(props: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body className={["font-sans", fontSans.variable].join(" ")}>

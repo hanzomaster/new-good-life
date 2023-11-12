@@ -17,10 +17,12 @@ const getBaseUrl = () => {
   return `http://localhost:${env.PORT}`; // dev SSR should use localhost
 };
 
-export function TRPCReactProvider(props: {
-  children: React.ReactNode;
-  headers?: Headers;
-}) {
+export function TRPCReactProvider(
+  props: Readonly<{
+    children: React.ReactNode;
+    headers?: Headers;
+  }>,
+) {
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -59,7 +61,7 @@ export function TRPCReactProvider(props: {
         <ReactQueryStreamedHydration transformer={superjson}>
           {props.children}
         </ReactQueryStreamedHydration>
-        <ReactQueryDevtools initialIsOpen={false} />
+        <ReactQueryDevtools initialIsOpen={true} />
       </QueryClientProvider>
     </api.Provider>
   );
