@@ -1,8 +1,6 @@
 import React from "react";
-import { Button, Pressable, Text, TextInput, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Link, Stack } from "expo-router";
-import { FlashList } from "@shopify/flash-list";
+import { Pressable, Text, TextInput, View } from "react-native";
+import { Link, Redirect } from "expo-router";
 
 import type { RouterOutputs } from "~/utils/api";
 import { api } from "~/utils/api";
@@ -99,7 +97,7 @@ function CreatePost() {
 }
 
 const Index = () => {
-  const utils = api.useContext();
+  const utils = api.useUtils();
 
   const postQuery = api.post.all.useQuery();
 
@@ -107,43 +105,45 @@ const Index = () => {
     onSettled: () => utils.post.all.invalidate(),
   });
 
-  return (
-    <SafeAreaView className="bg-[#1F104A]">
-      {/* Changes page title visible on the header */}
-      <Stack.Screen options={{ title: "Home Page" }} />
-      <View className="h-full w-full p-4">
-        <Text className="pb-2 text-center text-5xl font-bold text-white">
-          Create <Text className="text-pink-400">T3</Text> Turbo
-        </Text>
+  return <Redirect href={"/home"} />;
 
-        <Button
-          onPress={() => void utils.post.all.invalidate()}
-          title="Refresh posts"
-          color={"#f472b6"}
-        />
+  // return (
+  // <SafeAreaView className="bg-[#1F104A]">
+  //   {/* Changes page title visible on the header */}
+  //   <Stack.Screen options={{ title: "Home Page" }} />
+  //   <View className="h-full w-full p-4">
+  //     <Text className="pb-2 text-center text-5xl font-bold text-white">
+  //       Create <Text className="text-pink-400">T3</Text> Turbo
+  //     </Text>
 
-        <View className="py-2">
-          <Text className="font-semibold italic text-white">
-            Press on a post
-          </Text>
-        </View>
+  //     <Button
+  //       onPress={() => void utils.post.all.invalidate()}
+  //       title="Refresh posts"
+  //       color={"#f472b6"}
+  //     />
 
-        <FlashList
-          data={postQuery.data}
-          estimatedItemSize={20}
-          ItemSeparatorComponent={() => <View className="h-2" />}
-          renderItem={(p) => (
-            <PostCard
-              post={p.item}
-              onDelete={() => deletePostMutation.mutate(p.item.id)}
-            />
-          )}
-        />
+  //     <View className="py-2">
+  //       <Text className="font-semibold italic text-white">
+  //         Press on a post
+  //       </Text>
+  //     </View>
 
-        <CreatePost />
-      </View>
-    </SafeAreaView>
-  );
+  //     <FlashList
+  //       data={postQuery.data}
+  //       estimatedItemSize={20}
+  //       ItemSeparatorComponent={() => <View className="h-2" />}
+  //       renderItem={(p) => (
+  //         <PostCard
+  //           post={p.item}
+  //           onDelete={() => deletePostMutation.mutate(p.item.id)}
+  //         />
+  //       )}
+  //     />
+
+  //     <CreatePost />
+  //   </View>
+  // </SafeAreaView>
+  // );
 };
 
 export default Index;
