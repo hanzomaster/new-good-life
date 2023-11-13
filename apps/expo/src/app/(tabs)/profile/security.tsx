@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 
-const security = () => {
+const Security = () => {
   return (
     <View>
       <Text>Security</Text>
@@ -8,4 +8,4 @@ const security = () => {
   );
 };
 
-export default security;
+export default Security;

@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 
-const recent = () => {
+const Recent = () => {
   return (
     <View>
       <Text>Recent</Text>
@@ -8,4 +8,4 @@ const recent = () => {
   );
 };
 
-export default recent;
+export default Recent;

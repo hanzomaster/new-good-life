@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 
-const mind = () => {
+const Mind = () => {
   return (
     <View>
       <Text>Mind</Text>
@@ -8,4 +8,4 @@ const mind = () => {
   );
 };
 
-export default mind;
+export default Mind;

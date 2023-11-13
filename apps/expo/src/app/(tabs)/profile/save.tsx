@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 
-const save = () => {
+const Save = () => {
   return (
     <View>
       <Text>Save</Text>
@@ -8,4 +8,4 @@ const save = () => {
   );
 };
 
-export default save;
+export default Save;

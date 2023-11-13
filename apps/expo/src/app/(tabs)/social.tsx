@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
-const social = () => {
+const Social = () => {
   return (
     <View>
       <FontAwesome.Button name="facebook-f" backgroundColor={"#3b5998"}>
@@ -11,4 +11,4 @@ const social = () => {
   );
 };
 
-export default social;
+export default Social;

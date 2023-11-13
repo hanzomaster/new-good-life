@@ -105,14 +105,7 @@ function RootLayoutNav() {
         The Stack component displays the current page.
         It also allows you to configure your screens
       */}
-      <Stack>
-        <Stack.Screen
-          name="(tabs)"
-          options={{
-            headerShown: false,
-          }}
-        />
-      </Stack>
+      <Stack screenOptions={{ headerShown: false }} />
       <StatusBar hidden={false} networkActivityIndicatorVisible={true} />
     </TRPCProvider>
   );

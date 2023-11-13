@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 
-const body = () => {
+const Body = () => {
   return (
     <View>
       <Text>Body</Text>
@@ -8,4 +8,4 @@ const body = () => {
   );
 };
 
-export default body;
+export default Body;
