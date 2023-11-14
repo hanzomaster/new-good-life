@@ -102,6 +102,9 @@ importers:
       '@trpc/server':
         specifier: next
         version: 11.0.0-alpha-next-2023-11-11-17-32-01.100
+      date-fns:
+        specifier: ^2.30.0
+        version: 2.30.0
       expo:
         specifier: ^49.0.16
         version: 49.0.18(@babel/core@7.23.3)
@@ -171,6 +174,9 @@ importers:
       react-native-screens:
         specifier: ~3.22.1
         version: 3.22.1(react-native@0.72.6)(react@18.2.0)
+      react-native-tab-view:
+        specifier: ^3.5.2
+        version: 3.5.2(react-native-pager-view@6.2.0)(react-native@0.72.6)(react@18.2.0)
       react-native-track-player:
         specifier: ^4.0.1
         version: 4.0.1(react-native@0.72.6)(react@18.2.0)
@@ -5985,6 +5991,13 @@ packages:
     resolution: {integrity: sha512-MZd3VlchQkp8rdend6vrx7MmVDJzSNTBvghvKjirLkD+WTChA3KUf0jkE68Q4UyctNqI11zZO9/x2Yx+ub5Cvg==}
     engines: {node: '>= 14'}
     dev: true
+
+  /date-fns@2.30.0:
+    resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
+    engines: {node: '>=0.11'}
+    dependencies:
+      '@babel/runtime': 7.23.2
+    dev: false
 
   /dayjs@1.11.10:
     resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}

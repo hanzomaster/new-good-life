@@ -65,7 +65,7 @@ const Options = () => {
           source={require("assets/images/profile/header.png")}
         />
         <View className="absolute mt-[25%] flex flex-row gap-4">
-          <View className="box-content h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-slate-50">
+          <View className="h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-slate-50">
             <Image
               className="relative object-cover"
               source={require("assets/images/profile/avatar.png")}
@@ -109,7 +109,7 @@ const Options = () => {
                 key={item.name}
               >
                 <TouchableOpacity
-                  className=" flex flex-row items-baseline space-x-6"
+                  className="flex flex-row items-baseline space-x-6"
                   onPress={() => router.push(item.url as `http${string}`)}
                 >
                   <Image
@@ -117,7 +117,7 @@ const Options = () => {
                     source={item.image as ImageSourcePropType}
                   />
                   <Text
-                    className=" font-quicksand ml-10 text-lg text-[#5A2D22] "
+                    className="font-quicksand ml-10 text-lg text-primary-textColor"
                     style={styles().textFontBold}
                   >
                     {item.name}

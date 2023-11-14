@@ -3,7 +3,9 @@ import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 
-import HorizontalCard from "~/components/HorizontalCard";
+import RectangleCard from "~/components/RectangleCard";
+import SquareCard from "~/components/SquareCard";
+import { getCurrentDateVn } from "~/utils/date";
 import { styles } from "../_layout";
 
 const Home = () => {
@@ -22,10 +24,7 @@ const Home = () => {
             <TouchableOpacity
               onPress={() => router.push("/(tabs)/notification")}
             >
-              <Image
-                className=""
-                source={require("assets/images/home/noti.png")}
-              />
+              <Image source={require("assets/images/home/noti.png")} />
             </TouchableOpacity>
             <TouchableOpacity>
               <Image
@@ -42,10 +41,7 @@ const Home = () => {
           </View>
         </View>
         <View className="inset-x-0 mt-9 flex flex-col items-center justify-between">
-          <Image
-            className=""
-            source={require("assets/images/home/center.png")}
-          />
+          <Image source={require("assets/images/home/center.png")} />
           <View className="inset-x-0 items-center">
             <Text
               className="text-2xl text-primary-textColor"
@@ -67,7 +63,7 @@ const Home = () => {
             source={require("assets/images/home/flowerCtr.png")}
           />
           <Image
-            className="absolute mt-5 h-fit w-full"
+            className="absolute mt-5 w-full"
             source={require("assets/images/home/bottom.png")}
           />
 
@@ -76,7 +72,7 @@ const Home = () => {
               className="relative text-lg text-white"
               style={styles().textFontSemiBold}
             >
-              Thứ 2, ngày 1 tháng 12{" "}
+              {getCurrentDateVn()}
             </Text>
             <TouchableOpacity
               className="z-10 mt-10"
@@ -151,131 +147,33 @@ const Home = () => {
           </Text>
         </View>
 
-        <ScrollView horizontal className="mt-4 flex pb-4">
+        <ScrollView horizontal className="mt-4 pb-4">
           <View className="relative ml-4 flex w-full flex-row gap-4">
             {Array.from(Array(3).keys()).map((i) => (
-              <HorizontalCard key={i} />
+              <RectangleCard key={i} />
             ))}
           </View>
         </ScrollView>
 
-        <View>
-          <View className="mx-6 mt-4 flex flex-row items-baseline justify-between">
-            <Text
-              className="text-lg text-white"
-              style={styles().textFontSemiBold}
-            >
-              Nội dung mới
-            </Text>
-            <Text className="text-sm text-white" style={styles().textFont}>
-              Xem thêm
-            </Text>
-          </View>
-        </View>
-
-        <View
-          className=" mb-5 mt-2"
-          style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "flex-start",
-          }}
-        >
-          <ScrollView
-            horizontal
-            className="flex h-fit pb-2"
-            alwaysBounceHorizontal
-            alwaysBounceVertical={false}
+        <View className="mx-6 mt-4 flex flex-row items-baseline justify-between">
+          <Text
+            className="text-lg text-white"
+            style={styles().textFontSemiBold}
           >
-            <View className=" relative ml-3 flex flex-row space-x-6">
-              <TouchableOpacity className="">
-                <View className="relative box-content">
-                  <Image
-                    className="h-40 w-40 rounded-lg object-fill"
-                    source={require("assets/images/home/testnewcontentpic.png")}
-                  />
-                  <View className="absolute bottom-2 left-4 rounded-2xl bg-slate-900/40 bg-opacity-10 p-1 ">
-                    <Text className="text-white" style={styles().textFont}>
-                      21 phút
-                    </Text>
-                  </View>
-                </View>
-
-                <View className="mt-2">
-                  <Text
-                    className="text-base text-white"
-                    style={styles().textFontSemiBold}
-                  >
-                    Thiền buổi tối
-                  </Text>
-                  <View className=" flex flex-row items-baseline space-x-1">
-                    <Image source={require("assets/images/home/heart.png")} />
-                    <Text className="text-xs text-[#DED5C6]">
-                      22 &#8226; 11.02.2023{" "}
-                    </Text>
-                  </View>
-                </View>
-              </TouchableOpacity>
-
-              <TouchableOpacity className="">
-                <View className="relative box-content">
-                  <Image
-                    className="relative h-40 w-40 rounded-lg object-fill"
-                    source={require("assets/images/home/testpic.png")}
-                  />
-                  <View className="absolute bottom-2 left-4 rounded-2xl bg-slate-900/40 bg-opacity-10 p-1 ">
-                    <Text className="text-white" style={styles().textFont}>
-                      21 phút
-                    </Text>
-                  </View>
-                </View>
-
-                <View className="mt-2">
-                  <Text
-                    className="text-base text-white"
-                    style={styles().textFontSemiBold}
-                  >
-                    Thiền buổi tối
-                  </Text>
-                  <View className=" flex flex-row items-baseline space-x-1">
-                    <Image source={require("assets/images/home/heart.png")} />
-                    <Text className="text-xs text-[#DED5C6]">
-                      22 &#8226; 11.02.2023{" "}
-                    </Text>
-                  </View>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity className="">
-                <View className="relative box-content">
-                  <Image
-                    className="relative h-40 w-40 rounded-lg object-fill"
-                    source={require("assets/images/home/testpic.png")}
-                  />
-                  <View className="absolute bottom-2 left-4 rounded-2xl bg-slate-900/40 bg-opacity-10 p-1 ">
-                    <Text className="text-white" style={styles().textFont}>
-                      21 phút
-                    </Text>
-                  </View>
-                </View>
-
-                <View className="mt-2">
-                  <Text
-                    className="text-base text-white"
-                    style={styles().textFontSemiBold}
-                  >
-                    Thiền buổi tối
-                  </Text>
-                  <View className=" flex flex-row items-baseline space-x-1">
-                    <Image source={require("assets/images/home/heart.png")} />
-                    <Text className="text-xs text-[#DED5C6]">
-                      22 &#8226; 11.02.2023{" "}
-                    </Text>
-                  </View>
-                </View>
-              </TouchableOpacity>
-            </View>
-          </ScrollView>
+            Nội dung mới
+          </Text>
+          <Text className="text-sm text-white" style={styles().textFont}>
+            Xem thêm
+          </Text>
         </View>
+
+        <ScrollView horizontal className="mt-4 pb-4">
+          <View className="relative ml-4 flex w-full flex-row gap-4">
+            {Array.from(Array(3).keys()).map((i) => (
+              <SquareCard key={i} />
+            ))}
+          </View>
+        </ScrollView>
       </ScrollView>
     </SafeAreaView>
   );

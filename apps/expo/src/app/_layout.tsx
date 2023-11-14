@@ -11,7 +11,6 @@ import {
 } from "@expo-google-fonts/quicksand";
 import { FontAwesome } from "@expo/vector-icons";
 
-import Color from "~/constants/Color";
 import { TRPCProvider } from "~/utils/api";
 
 import "../styles.css";
@@ -41,8 +40,6 @@ export const styles = (props?: number) =>
       flexDirection: "row",
       flexWrap: "wrap",
       justifyContent: "center",
-      marginVertical: -(gap / 2),
-      marginHorizontal: -(gap / 2),
     },
     singleItem: {
       marginHorizontal: gap / 2,
@@ -110,7 +107,8 @@ function RootLayoutNav() {
       <StatusBar
         hidden={false}
         networkActivityIndicatorVisible={true}
-        backgroundColor={Color["primary-backgroundColor"]}
+        translucent
+        backgroundColor="transparent"
       />
     </TRPCProvider>
   );

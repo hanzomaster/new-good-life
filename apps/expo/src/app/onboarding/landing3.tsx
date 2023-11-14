@@ -16,7 +16,7 @@ export default function LandingPage3() {
     <SafeAreaView className="h-full w-full bg-[#FFF4ED]">
       <View className=" relative right-0 top-0 items-end p-0">
         <Image
-          className="h-auto w-1/2 object-fill"
+          className="h-auto w-1/2"
           source={require("assets/images/landingpage4/topright.png")}
         />
       </View>
@@ -67,7 +67,7 @@ export default function LandingPage3() {
         </TouchableOpacity>
         <View>
           <Image
-            className="h-auto w-auto  object-fill"
+            className="h-auto w-auto"
             source={require("assets/images/landingpage4/bottom.png")}
           />
         </View>

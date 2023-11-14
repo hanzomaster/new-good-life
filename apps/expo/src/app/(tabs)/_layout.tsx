@@ -38,7 +38,7 @@ export default function TabsLayout() {
           tabBarLabel: "Trang chủ",
           tabBarIcon: ({ color, focused }) => {
             return focused ? (
-              <View className="border-t-2 border-t-primary-orange pt-1">
+              <View className="border-t-2 border-t-primary-orange px-4 pt-2">
                 <HomeIcon color={color} />
               </View>
             ) : (
@@ -54,7 +54,7 @@ export default function TabsLayout() {
           tabBarLabel: "Hình thể",
           tabBarIcon: ({ color, focused }) => {
             return focused ? (
-              <View className="border-t-2 border-t-primary-orange pt-1">
+              <View className="border-t-2 border-t-primary-orange px-4 pt-2">
                 <BodyIcon color={color} />
               </View>
             ) : (
@@ -70,7 +70,7 @@ export default function TabsLayout() {
           tabBarLabel: "Tâm trí",
           tabBarIcon: ({ color, focused }) => {
             return focused ? (
-              <View className="border-t-2 border-t-primary-orange pt-1">
+              <View className="border-t-2 border-t-primary-orange px-4 pt-2">
                 <MindIcon color={color} />
               </View>
             ) : (
@@ -86,7 +86,7 @@ export default function TabsLayout() {
           tabBarLabel: "Kết nối",
           tabBarIcon: ({ color, focused }) => {
             return focused ? (
-              <View className="border-t-2 border-t-[#FF835C] pt-1">
+              <View className="border-t-2 border-t-[#FF835C] px-4 pt-2">
                 <SocialIcon color={color} />
               </View>
             ) : (
@@ -102,7 +102,7 @@ export default function TabsLayout() {
           tabBarLabel: "Hồ sơ",
           tabBarIcon: ({ color, focused }) => {
             return focused ? (
-              <View className="border-t-2 border-t-primary-orange pt-1">
+              <View className="border-t-2 border-t-primary-orange px-4 pt-2">
                 <ProfileIcon color={color} />
               </View>
             ) : (

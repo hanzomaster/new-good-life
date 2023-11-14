@@ -2,8 +2,9 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
 import { styles } from "~/app/_layout";
+import HeartAndDate from "./HeartAndDate";
 
-const HorizontalCard = () => {
+const RectangleCard = () => {
   return (
     <TouchableOpacity>
       <View className="relative box-content">
@@ -19,20 +20,13 @@ const HorizontalCard = () => {
       </View>
 
       <View className="mt-2">
-        <Text
-          className="text-base text-white"
-          style={styles().textFontSemiBold}
-        >
+        <Text className="text-white" style={styles().textFontSemiBold}>
           Thiền buổi sáng
         </Text>
-        <View className="flex flex-row items-baseline space-x-1">
-          <Image source={require("assets/images/home/heart.png")} />
-          <Text> </Text>
-          <Text className="text-xs text-[#DED5C6]">22 &#8226; 11.02.2023</Text>
-        </View>
+        <HeartAndDate heart={22} date="11.02.2023" color="#DED5C6" />
       </View>
     </TouchableOpacity>
   );
 };
 
-export default HorizontalCard;
+export default RectangleCard;

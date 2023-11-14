@@ -68,7 +68,7 @@ export default function LandingPage2() {
         </TouchableOpacity>
         <View>
           <Image
-            className="h-auto w-auto scale-x-90 object-fill"
+            className="h-auto w-auto scale-x-90"
             source={require("assets/images/landingpage3/bottom.png")}
           />
         </View>
