@@ -6,7 +6,7 @@ import { getItemFor, storeData } from "~/utils/storageUtils";
 const HAS_LAUNCHED = "HAS_LAUNCHED";
 
 export default function Index() {
-  // first time lauch app
+  // first time launch app
   const [hasLaunched, setHasLaunched] = useState(false);
   useEffect(() => {
     const getData = async () => {

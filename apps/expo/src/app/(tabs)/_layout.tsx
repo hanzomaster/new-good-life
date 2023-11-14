@@ -38,7 +38,7 @@ export default function TabsLayout() {
           tabBarLabel: "Trang chủ",
           tabBarIcon: ({ color, focused }) => {
             return focused ? (
-              <View className="border-t-primary-orange border-t-2 pt-1">
+              <View className="border-t-2 border-t-primary-orange pt-1">
                 <HomeIcon color={color} />
               </View>
             ) : (
@@ -54,7 +54,7 @@ export default function TabsLayout() {
           tabBarLabel: "Hình thể",
           tabBarIcon: ({ color, focused }) => {
             return focused ? (
-              <View className="border-t-primary-orange border-t-2 pt-1">
+              <View className="border-t-2 border-t-primary-orange pt-1">
                 <BodyIcon color={color} />
               </View>
             ) : (
@@ -70,7 +70,7 @@ export default function TabsLayout() {
           tabBarLabel: "Tâm trí",
           tabBarIcon: ({ color, focused }) => {
             return focused ? (
-              <View className="border-t-primary-orange border-t-2 pt-1">
+              <View className="border-t-2 border-t-primary-orange pt-1">
                 <MindIcon color={color} />
               </View>
             ) : (
@@ -102,7 +102,7 @@ export default function TabsLayout() {
           tabBarLabel: "Hồ sơ",
           tabBarIcon: ({ color, focused }) => {
             return focused ? (
-              <View className="border-t-primary-orange border-t-2 pt-1">
+              <View className="border-t-2 border-t-primary-orange pt-1">
                 <ProfileIcon color={color} />
               </View>
             ) : (
@@ -111,6 +111,8 @@ export default function TabsLayout() {
           },
         }}
       />
+      <Tabs.Screen name="notification" options={{ href: null }} />
+      <Tabs.Screen name="search" options={{ href: null }} />
     </Tabs>
   );
 }

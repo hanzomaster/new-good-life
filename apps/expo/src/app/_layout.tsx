@@ -11,6 +11,7 @@ import {
 } from "@expo-google-fonts/quicksand";
 import { FontAwesome } from "@expo/vector-icons";
 
+import Color from "~/constants/Color";
 import { TRPCProvider } from "~/utils/api";
 
 import "../styles.css";
@@ -106,7 +107,11 @@ function RootLayoutNav() {
         It also allows you to configure your screens
       */}
       <Stack screenOptions={{ headerShown: false }} />
-      <StatusBar hidden={false} networkActivityIndicatorVisible={true} />
+      <StatusBar
+        hidden={false}
+        networkActivityIndicatorVisible={true}
+        backgroundColor={Color["primary-backgroundColor"]}
+      />
     </TRPCProvider>
   );
 }

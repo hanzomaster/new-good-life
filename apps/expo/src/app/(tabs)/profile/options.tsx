@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import type { ImageSourcePropType } from "react-native";
 import {
   Image,
   SafeAreaView,
@@ -7,11 +8,16 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import type { Route } from "expo-router";
 import { Link, useRouter } from "expo-router";
 
 import { styles } from "~/app/_layout";
 
-const options = [
+const options: {
+  name: string;
+  image: unknown;
+  url: Route<string>;
+}[] = [
   {
     name: "Gần đây",
     image: require("assets/images/profile/recent.png"),
@@ -45,14 +51,14 @@ const options = [
   {
     name: "Đăng xuất",
     image: require("assets/images/profile/logout.png"),
-    url: "/(tabs)/profile/logout",
+    url: "/(tabs)/profile/home",
   },
 ];
 
-const Home = () => {
+const Options = () => {
   const router = useRouter();
   return (
-    <SafeAreaView className="bg-primary-backgroundColor inset-0 h-full w-screen">
+    <SafeAreaView className="inset-0 h-full w-screen bg-primary-backgroundColor">
       <View className="absolute inset-x-0" style={{ alignItems: "center" }}>
         <Image
           className="h-auto w-full object-cover"
@@ -106,7 +112,10 @@ const Home = () => {
                   className=" flex flex-row items-baseline space-x-6"
                   onPress={() => router.push(item.url as `http${string}`)}
                 >
-                  <Image className="h-auto object-cover" source={item.image} />
+                  <Image
+                    className="h-auto object-cover"
+                    source={item.image as ImageSourcePropType}
+                  />
                   <Text
                     className=" font-quicksand ml-10 text-lg text-[#5A2D22] "
                     style={styles().textFontBold}
@@ -124,4 +133,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Options;

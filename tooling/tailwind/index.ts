@@ -7,6 +7,7 @@ export default {
       colors: {
         "primary-orange": "#FF835C",
         "primary-backgroundColor": "#FFF4ED",
+        "primary-textColor": "#5A2D22",
       },
     },
   },
