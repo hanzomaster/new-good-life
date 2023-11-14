@@ -71,7 +71,7 @@ export const Nutrition = () => {
         <Image source={require("assets/images/nutrition/Icon.png")} />
         <TextInput
           placeholder="Tìm kiếm"
-          className="px-2 py-1 text-sm text-[#9B9B9B]"
+          className="w-full px-2 py-1 text-sm text-[#9B9B9B]"
         />
       </View>
       <ScrollView
@@ -81,28 +81,29 @@ export const Nutrition = () => {
         directionalLockEnabled
         showsHorizontalScrollIndicator={false}
       >
-        <View className="ml-6 flex flex-row gap-4 py-9">
+        <View className="mx-6 flex h-full flex-row gap-4 pt-9">
           {suggest.map((item) => {
             return (
-              <View
+              <TouchableOpacity
+                className="h-20"
                 key={item.name}
-                className={classNames(
-                  selectedSuggest.includes(item.name)
-                    ? "bg-[#7A9861]"
-                    : "bg-white",
-                  "h-14 w-fit items-center justify-center rounded-xl p-4",
-                )}
+                onPress={() => {
+                  if (selectedSuggest.includes(item.name)) {
+                    setSelectedSuggest(
+                      selectedSuggest.filter((i) => i !== item.name),
+                    );
+                  } else {
+                    updateSelectedSuggest(item.name);
+                  }
+                }}
               >
-                <TouchableOpacity
-                  onPress={() => {
-                    if (selectedSuggest.includes(item.name)) {
-                      setSelectedSuggest(
-                        selectedSuggest.filter((i) => i !== item.name),
-                      );
-                    } else {
-                      updateSelectedSuggest(item.name);
-                    }
-                  }}
+                <View
+                  className={classNames(
+                    selectedSuggest.includes(item.name)
+                      ? "bg-[#7A9861]"
+                      : "bg-white",
+                    "rounded-xl p-4",
+                  )}
                 >
                   <Text
                     className={classNames(
@@ -114,19 +115,19 @@ export const Nutrition = () => {
                   >
                     {item.name}
                   </Text>
-                </TouchableOpacity>
-              </View>
+                </View>
+              </TouchableOpacity>
             );
           })}
         </View>
       </ScrollView>
 
       <ScrollView
-        className="-mt-2"
+        className=" flex w-full"
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
       >
-        <View className="ml-9" style={styles().itemsWrap}>
+        <View style={styles().itemsWrap}>
           {food.map((item) => {
             return (
               <TouchableOpacity
@@ -134,19 +135,19 @@ export const Nutrition = () => {
                 style={styles(2).singleItem}
                 onPress={() => null}
               >
-                <View className="w-40">
+                <View className="self-center">
                   <Image className="h-40 w-40 rounded-lg" source={item.image} />
-                </View>
 
-                <View className="mt-2">
-                  <Text className="text-[#5A2D22]" style={styles().textFont}>
-                    {item.name}
-                  </Text>
-                  <HeartAndDate
-                    heart={item.heart}
-                    date={item.date}
-                    color="#B2B2B2"
-                  />
+                  <View className="mt-2">
+                    <Text className="text-[#5A2D22]" style={styles().textFont}>
+                      {item.name}
+                    </Text>
+                    <HeartAndDate
+                      heart={item.heart}
+                      date={item.date}
+                      color="#B2B2B2"
+                    />
+                  </View>
                 </View>
               </TouchableOpacity>
             );

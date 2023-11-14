@@ -27,6 +27,7 @@ const defineConfig = (): ExpoConfig => ({
       foregroundImage: "./assets/icon.png",
       backgroundColor: "#2e026d",
     },
+    softwareKeyboardLayoutMode: "pan",
   },
   // extra: {
   //   eas: {

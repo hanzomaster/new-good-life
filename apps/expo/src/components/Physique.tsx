@@ -85,7 +85,7 @@ export const Physique = () => {
         <Image source={require("assets/images/physique/Icon.png")} />
         <TextInput
           placeholder="Tìm kiếm"
-          className="px-2 py-1 text-sm text-[#9B9B9B]"
+          className="w-full px-2 py-1 text-sm text-[#9B9B9B]"
         />
       </View>
       <ScrollView
@@ -95,28 +95,29 @@ export const Physique = () => {
         directionalLockEnabled
         showsHorizontalScrollIndicator={false}
       >
-        <View className="ml-6 flex flex-row gap-4 py-9">
+        <View className="mx-6 flex h-full flex-row gap-4 py-9">
           {suggest.map((item) => {
             return (
-              <View
+              <TouchableOpacity
+                className="h-20"
                 key={item.name}
-                className={classNames(
-                  selectedSuggest.includes(item.name)
-                    ? "bg-[#7A9861]"
-                    : "bg-white",
-                  "h-14 w-fit items-center justify-center rounded-xl p-4",
-                )}
+                onPress={() => {
+                  if (selectedSuggest.includes(item.name)) {
+                    setSelectedSuggest(
+                      selectedSuggest.filter((i) => i !== item.name),
+                    );
+                  } else {
+                    updateSelectedSuggest(item.name);
+                  }
+                }}
               >
-                <TouchableOpacity
-                  onPress={() => {
-                    if (selectedSuggest.includes(item.name)) {
-                      setSelectedSuggest(
-                        selectedSuggest.filter((i) => i !== item.name),
-                      );
-                    } else {
-                      updateSelectedSuggest(item.name);
-                    }
-                  }}
+                <View
+                  className={classNames(
+                    selectedSuggest.includes(item.name)
+                      ? "bg-[#7A9861]"
+                      : "bg-white",
+                    "rounded-xl p-4",
+                  )}
                 >
                   <Text
                     className={classNames(
@@ -128,46 +129,48 @@ export const Physique = () => {
                   >
                     {item.name}
                   </Text>
-                </TouchableOpacity>
-              </View>
+                </View>
+              </TouchableOpacity>
             );
           })}
         </View>
       </ScrollView>
 
       <ScrollView
-        className="mt-6"
+        className="mt-6 flex w-full"
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
       >
-        <View className="ml-9" style={styles().itemsWrap}>
+        <View style={styles().itemsWrap}>
           {video.map((item) => {
             return (
               <TouchableOpacity key={item.name} style={styles(2).singleItem}>
-                <View className="w-40">
-                  <Image className="h-40 w-40 rounded-lg" source={item.image} />
-                  <View className="absolute bottom-2 left-2 rounded-2xl bg-slate-900/40 bg-opacity-10 p-1">
-                    <Text className="text-white" style={styles().textFont}>
-                      {item.time} phút
-                    </Text>
-                  </View>
-                  <View className="absolute bottom-2 right-6 rounded-2xl">
+                <View className="w-40 self-center">
+                  <View>
                     <Image
-                      className="h-6 w-6"
+                      className="h-40 w-40 rounded-lg"
+                      source={item.image}
+                    />
+                    <View className="absolute bottom-2 left-2 rounded-2xl bg-slate-900/40 bg-opacity-10 p-1">
+                      <Text className="text-white" style={styles().textFont}>
+                        {item.time} phút
+                      </Text>
+                    </View>
+                    <Image
+                      className="absolute bottom-2 right-2 h-6 w-6 rounded-2xl"
                       source={require("assets/images/physique/play.png")}
                     />
                   </View>
-                </View>
-
-                <View className="mt-2">
-                  <Text className="text-[#5A2D22]" style={styles().textFont}>
-                    {item.name}
-                  </Text>
-                  <HeartAndDate
-                    heart={item.heart}
-                    date={item.date}
-                    color="#B2B2B2"
-                  />
+                  <View className="mt-2">
+                    <Text className="text-[#5A2D22]" style={styles().textFont}>
+                      {item.name}
+                    </Text>
+                    <HeartAndDate
+                      heart={item.heart}
+                      date={item.date}
+                      color="#B2B2B2"
+                    />
+                  </View>
                 </View>
               </TouchableOpacity>
             );

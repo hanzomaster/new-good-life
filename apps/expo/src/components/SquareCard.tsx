@@ -7,7 +7,7 @@ import HeartAndDate from "./HeartAndDate";
 const SquareCard = () => {
   return (
     <TouchableOpacity>
-      <View className="relative">
+      <View>
         <Image
           className="h-40 w-40 rounded-lg"
           source={require("assets/images/home/testnewcontentpic.png")}

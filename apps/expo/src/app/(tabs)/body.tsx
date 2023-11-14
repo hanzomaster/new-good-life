@@ -76,14 +76,14 @@ const Body = () => {
         />
         <View className="absolute inset-x-0 mt-16 items-center">
           <Text
-            className="font-quicksand text-2xl text-white"
+            className="text-2xl text-white"
             style={styles().textFontSemiBold}
           >
             Hình thể
           </Text>
         </View>
         <TouchableOpacity
-          className="absolute right-10 top-20 p-1"
+          className="absolute right-10 top-20"
           onPress={() => null}
         >
           <Image source={require("assets/images/physique/expand.png")} />

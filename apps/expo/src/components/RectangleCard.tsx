@@ -7,7 +7,7 @@ import HeartAndDate from "./HeartAndDate";
 const RectangleCard = () => {
   return (
     <TouchableOpacity>
-      <View className="relative box-content">
+      <View>
         <Image
           className="rounded-lg"
           source={require("assets/images/home/testpic.png")}
