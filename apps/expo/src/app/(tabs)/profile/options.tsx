@@ -51,7 +51,7 @@ const options: {
   {
     name: "Đăng xuất",
     image: require("assets/images/profile/logout.png"),
-    url: "/(tabs)/profile/home",
+    url: "/auth/SignIn",
   },
 ];
 

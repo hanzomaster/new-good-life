@@ -89,7 +89,7 @@ function RootLayout() {
     }
   }, [loaded, loadedFont]);
 
-  if (!loaded) {
+  if (!loaded || !loadedFont) {
     return null;
   }
 

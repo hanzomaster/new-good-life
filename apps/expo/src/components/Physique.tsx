@@ -1,20 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import React, { useState } from "react";
-import {
-  Image,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import React from "react";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 import { styles } from "~/app/_layout";
 import HeartAndDate from "./HeartAndDate";
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
+import SearchBar from "./SearchBar";
+import SuggestScrollView from "./SuggestScrollView";
 
 const video = [
   {
@@ -73,68 +64,10 @@ const suggest = [
 ];
 
 export const Physique = () => {
-  const [selectedSuggest, setSelectedSuggest] = useState<string[]>([]);
-  const updateSelectedSuggest = (item: string) => {
-    const copyArray = [...selectedSuggest];
-    copyArray.push(item);
-    setSelectedSuggest(copyArray);
-  };
   return (
     <View className="mt-4 h-full">
-      <View className="mx-5 mt-0 flex flex-row items-center rounded-lg border-2 border-[#FF835C33] bg-primary-backgroundColor px-3 py-1">
-        <Image source={require("assets/images/physique/Icon.png")} />
-        <TextInput
-          placeholder="Tìm kiếm"
-          className="w-full px-2 py-1 text-sm text-[#9B9B9B]"
-        />
-      </View>
-      <ScrollView
-        horizontal
-        showsVerticalScrollIndicator={false}
-        automaticallyAdjustContentInsets={false}
-        directionalLockEnabled
-        showsHorizontalScrollIndicator={false}
-      >
-        <View className="mx-6 flex h-full flex-row gap-4 py-9">
-          {suggest.map((item) => {
-            return (
-              <TouchableOpacity
-                className="h-20"
-                key={item.name}
-                onPress={() => {
-                  if (selectedSuggest.includes(item.name)) {
-                    setSelectedSuggest(
-                      selectedSuggest.filter((i) => i !== item.name),
-                    );
-                  } else {
-                    updateSelectedSuggest(item.name);
-                  }
-                }}
-              >
-                <View
-                  className={classNames(
-                    selectedSuggest.includes(item.name)
-                      ? "bg-[#7A9861]"
-                      : "bg-white",
-                    "rounded-xl p-4",
-                  )}
-                >
-                  <Text
-                    className={classNames(
-                      selectedSuggest.includes(item.name)
-                        ? "text-white"
-                        : "text-[#A5A5A5]",
-                    )}
-                    style={styles().textFontSemiBold}
-                  >
-                    {item.name}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            );
-          })}
-        </View>
-      </ScrollView>
+      <SearchBar />
+      <SuggestScrollView suggest={suggest} />
 
       <ScrollView
         className="mt-6 flex w-full"

@@ -1,4 +1,4 @@
-export type Song = {
+export interface Song {
   id: number;
   name: string;
   image: any;
@@ -7,11 +7,11 @@ export type Song = {
   description: string;
   like: boolean;
   uri: any;
-};
-export type Playlist = {
+}
+export interface Playlist {
   name: string;
-  list: Array<Song>;
-};
+  list: Song[];
+}
 export const suggestSongs = [
   {
     id: 0,
@@ -86,7 +86,7 @@ export const suggestSongs = [
   },
 ];
 
-const naturalSongs: Array<Song> = [
+const naturalSongs: Song[] = [
   {
     id: 2,
     name: "Giữa đại lộ Đông Tây",
@@ -161,7 +161,7 @@ const naturalSongs: Array<Song> = [
   },
 ];
 
-export const suggest: Array<Playlist> = [
+export const suggest: Playlist[] = [
   {
     name: "Gợi ý",
     list: suggestSongs,
